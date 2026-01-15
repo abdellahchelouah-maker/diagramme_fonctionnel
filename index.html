@@ -2,9 +2,10 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <title>Chaînes d'énergie et d'information – STI2D</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chaînes d'Énergie et d'Information</title>
-    <style>
+	
+	    <style>
         * {
             margin: 0;
             padding: 0;
@@ -275,7 +276,11 @@
         }
     </style>
 </head>
+
 <body>
+
+<!-- ===================== CONTENU ===================== -->
+
     <header>
         <h1>📚 Dossier ressource sur les chaînes d'Énergie et d'Information</h1>
         <p>Niveau Première et Terminale STI2D - Compétences essentielles</p>
@@ -283,6 +288,7 @@
     
     <nav>
         <ul>
+			<li><a href="#intro">🎯 Introduction</a></li>
             <li><a href="#energie">Chaîne d'Énergie</a></li>
             <li><a href="#alimenter">Alimenter</a></li>
             <li><a href="#distribuer">Distribuer & Convertir</a></li>
@@ -296,55 +302,132 @@
     
     <div class="container">
         <!-- INTRODUCTION -->
-        <section id="intro" class="section">
-            <h2>🎯 Introduction</h2>
-            <p>Un système automatisé est composé de deux chaînes fonctionnelles complémentaires :</p>
+<section id="intro" class="section">
+    <h2>🎯 Introduction - Description des systèmes automatisés</h2>
+    
+    <div class="highlight">
+        <p>Un <strong>système automatisé</strong> est composé de deux chaînes fonctionnelles complémentaires qui coopèrent pour réaliser une fonction de service spécifiée dans le cahier des charges.</p>
+    </div>
+
+    <h3>1.1 Chaîne d'énergie et chaîne d'information</h3>
+    
+    <div class="grid">
+        <div class="card">
+            <h4>🔋 Chaîne d'énergie</h4>
+            <p><strong>Rôle :</strong> Assure la réalisation d'une action mécanique sur la matière d'œuvre.</p>
+            <p><strong>Fonctions génériques :</strong></p>
+            <ul>
+                <li><strong>Alimenter</strong> → Apporte l'énergie primaire</li>
+                <li><strong>Distribuer</strong> → Dirige l'énergie vers les actionneurs</li>
+                <li><strong>Convertir</strong> → Transforme l'énergie (élec.→mécanique)</li>
+                <li><strong>Transmettre</strong> → Transporte jusqu'à l'effecteur</li>
+            </ul>
+            <p><em>Repérable dans tous les produits industriels de notre environnement.</em></p>
+        </div>
+
+        <div class="card">
+            <h4>💾 Chaîne d'information</h4>
+            <p><strong>Rôle :</strong> Commande et pilote la chaîne d'énergie.</p>
+            <p><strong>Fonctions génériques :</strong></p>
+            <ul>
+                <li><strong>Acquérir</strong> → Détecte l'état du système</li>
+                <li><strong>Traiter</strong> → Analyse et décide</li>
+                <li><strong>Communiquer</strong> → Envoie ordres et messages</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="highlight">
+        <p>La <strong>chaîne d'information</strong>, associée à la chaîne d'énergie, constitue une <strong>chaîne d'action complète</strong>.</p>
+        <p>Elle permet :</p>
+        <ul>
+            <li><strong>D'acquérir des informations :</strong>
+                <ul>
+                    <li>Sur l'état d'un produit ou de la chaîne d'énergie,</li>
+                    <li>Issues d'interfaces homme/machine,</li>
+                    <li>Sur un processus géré par d'autres systèmes (bases de données...).</li>
+                </ul>
+            </li>
+            <li><strong>De traiter ces informations</strong> pour prendre des décisions,</li>
+            <li><strong>De communiquer :</strong> ordres vers la chaîne d'énergie ET messages vers les interfaces H/M.</li>
+        </ul>
+    </div>
+			<div class="card">
+                    <h4>⚡ Chaîne d'Énergie</h4>
+                    <p>Assure la transformation et la transmission de l'énergie pour agir sur la matière d'œuvre.</p>
+                    <p><strong>Fonctions :</strong> Alimenter → Distribuer → Convertir → Transmettre → Agir</p>
+                </div>
+                <div class="card">
+                    <h4>💡 Chaîne d'Information</h4>
+                    <p>Gère l'acquisition, le traitement et la communication des informations pour piloter le système.</p>
+                    <p><strong>Fonctions :</strong> Acquérir → Traiter → Communiquer</p>
+                </div>
+         
             
-            <div class="grid">
-                <div class="card">
-                    <h4>⚡ Capteurs de courant/tension</h4>
-                    <ul>
-                        <li>Ampèremètre</li>
-                        <li>Voltmètre</li>
-                        <li>Transformateur de courant</li>
-                    </ul>
-                </div>
-                
-                <div class="card">
-                    <h4>💨 Capteurs de pression</h4>
-                    <ul>
-                        <li>Pressostat</li>
-                        <li>Capteur piézorésistif</li>
-                        <li>Manomètre</li>
-                    </ul>
-                </div>
-                
-                <div class="card">
-                    <h4>🔄 Capteurs de vitesse/rotation</h4>
-                    <ul>
-                        <li>Tachymètre</li>
-                        <li>Codeur incrémental</li>
-                        <li>Capteur à effet Hall</li>
-                    </ul>
-                </div>
-                
-                <div class="card">
-                    <h4>⚖️ Capteurs de force/couple</h4>
-                    <ul>
-                        <li>Jauge de contrainte</li>
-                        <li>Cellule de charge</li>
-                        <li>Couplemètre</li>
-                    </ul>
-                </div>
+
+<div class="image-single" style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin: 2rem auto; max-width: 800px;">
+    
+    <div class="image-placeholder" style="background: linear-gradient(135deg, #E5E5E7, #D2D2D7); border: 2px dashed var(--border); border-radius: 18px; padding: 1.5rem; text-align: center; transition: transform 0.3s; cursor: zoom-in; position: relative; width: 100%; max-width: 800px;" onclick="zoomImage(this)">
+        <img src="images/diagramme_fonctionnel.png" alt="diagramme_fonctionnel" style="width: 100%; height: auto; max-width: 100%; object-fit: contain; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s; display: block; margin: 0 auto;">
+        <p style="margin-top: 1rem; font-weight: 500; color: var(--text);">Schéma global montrant l'interaction entre chaîne d'énergie et chaîne d'information</p>
+    </div>
+
+</div>
+
+<style>
+.image-single img:hover { transform: scale(1.05); }
+.image-placeholder:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
+/* Assure affichage intégral sans déformation */
+.image-single img {
+    object-fit: contain !important; /* Image entière visible, proportions respectées */
+    max-height: 80vh; /* Limite hauteur pour très grandes images */
+}
+</style>
+
+
+
+
+
+    <div class="cta">
+        <h3>Prochaine étape : Étude détaillée de la chaîne d'information</h3>
+        <a href="#info" class="btn-primary">Découvrir la chaîne d'information →</a>
+    </div>
+</section>
+           
+        </section>
+        
+        <!-- CHAÎNE D'INFORMATION -->
+        <section id="information" class="section">
+            <h2>💡 LA CHAÎNE D'INFORMATION</h2>
+            
+            <div class="flow-diagram">
+                <div class="flow-box">ACQUÉRIR</div>
+                <span class="arrow">→</span>
+                <div class="flow-box">TRAITER</div>
+                <span class="arrow">→</span>
+                <div class="flow-box">COMMUNIQUER</div>
             </div>
             
- 			
+            <div class="highlight">
+                <p><strong>Objectif :</strong> La chaîne d'information permet d'acquérir des informations sur l'état du système, de les traiter selon un programme ou une logique, puis de communiquer des ordres à la chaîne d'énergie ou des messages aux utilisateurs.</p>
+            </div>
+            
+            <h3>Sources d'information</h3>
+            
+            <ul>
+                <li>État du produit ou de ses éléments (chaîne d'énergie)</li>
+                <li>Interfaces homme/machine (boutons, écrans tactiles...)</li>
+                <li>Autres chaînes d'information (réseau, communication)</li>
+                <li>Bases de données, ressources partagées</li>
+            </ul>
+            
+ 
 			<!-- Une seule image (si modal zoom déjà présente ailleurs, ignorez le modal/script) -->
 			<div class="image-single" style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin: 2rem auto; max-width: 600px;">
 				
 				<div class="image-placeholder" style="background: linear-gradient(135deg, #E5E5E7, #D2D2D7); border: 2px dashed var(--border); border-radius: 18px; padding: 1.5rem; text-align: center; transition: transform 0.3s; cursor: zoom-in; position: relative; width: 100%;" onclick="zoomImage(this)">
-					<img src="images/tableau_capteurs.png" alt="tableau_capteurs" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s;">
-					<p style="margin-top: 1rem; font-weight: 500; color: var(--text);">Exemples de capteurs avec leurs applications</p>
+					<img src="images/chaine_information.png" alt="chaine_information" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s;">
+					<p style="margin-top: 1rem; font-weight: 500; color: var(--text);">Schéma global de la chaîne d'information</p>
 				</div>
 
 			</div>
@@ -353,7 +436,108 @@
 			.image-single img:hover { transform: scale(1.05); }
 			.image-placeholder:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
 			</style>
- 
+
+			
+        </section>
+        
+        <!-- ACQUÉRIR -->
+        <section id="acquerir" class="section">
+            <h2>📡 Fonction ACQUÉRIR</h2>
+            
+            <div class="highlight">
+                <p><strong>Définition :</strong> À partir d'une grandeur physique à mesurer, le <strong>capteur</strong> délivre un signal électrique utilisable après adaptation pour le traitement.</p>
+            </div>
+            
+<h3>Familles de capteurs STI2D</h3>
+
+<div class="grid">
+    <!-- Température -->
+    <div class="card">
+        <h4>🌡️ Température</h4>
+        <ul>
+            <li>Thermocouple (thermoélectricité)</li>
+            <li>Thermistance CTN/CTP</li>
+            <li>PT100/PT1000 (platine)</li>
+            <li>Thermomètre à résistance</li>
+        </ul>
+    </div>
+
+    <!-- Position/Proximité -->
+    <div class="card">
+        <h4>📏 Position/Proximité</h4>
+        <ul>
+            <li>Inductif (métal)</li>
+            <li>Capacitif (tous matériaux)</li>
+            <li>Photoélectrique (barrière, réfléchissant)</li>
+            <li>Magnétique (ILS/reed)</li>
+            <li>Fin de course électromécanique</li>
+        </ul>
+    </div>
+
+    <!-- Déformation/Force -->
+    <div class="card">
+        <h4>💪 Déformation/Force</h4>
+        <ul>
+            <li>Jauge extensométrique</li>
+            <li>Piézoélectrique (pression/force)</li>
+            <li>Capacitif (pression)</li>
+        </ul>
+    </div>
+
+    <!-- Mouvement angulaire -->
+    <div class="card">
+        <h4>🔄 Position angulaire</h4>
+        <ul>
+            <li>Codeur incrémental/absolu</li>
+            <li>Résolveur synchrone</li>
+            <li>Potentiomètre (analogique)</li>
+        </ul>
+    </div>
+
+    <!-- Rayonnement -->
+    <div class="card">
+        <h4>☀️ Rayonnement</h4>
+        <ul>
+            <li>Photodiode/phototransistor</li>
+            <li>Photocellule LDR</li>
+            <li>Capteur UV/IR</li>
+        </ul>
+    </div>
+
+    <!-- Niveaux/Fluides -->
+    <div class="card">
+        <h4>💧 Niveau/Pression</h4>
+        <ul>
+            <li>Flotteur</li>
+            <li>Piézoélectrique (pression)</li>
+            <li>Capacitif (niveau)</li>
+            <li>Détecteur ultrason</li>
+        </ul>
+    </div>
+</div>
+
+
+				
+				
+<div class="image-single" style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin: 2rem auto; max-width: 800px;">
+    
+    <div class="image-placeholder" style="background: linear-gradient(135deg, #E5E5E7, #D2D2D7); border: 2px dashed var(--border); border-radius: 18px; padding: 1.5rem; text-align: center; transition: transform 0.3s; cursor: zoom-in; position: relative; width: 100%; max-width: 800px;" onclick="zoomImage(this)">
+        <img src="images/tableau_capteurs.png" alt="tableau_capteurs" style="width: 100%; height: auto; max-width: 100%; object-fit: contain; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s; display: block; margin: 0 auto;">
+        <p style="margin-top: 1rem; font-weight: 500; color: var(--text);">Les principales familles de capteurs</p>
+    </div>
+
+</div>
+
+<style>
+.image-single img:hover { transform: scale(1.05); }
+.image-placeholder:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
+/* Assure affichage intégral sans déformation */
+.image-single img {
+    object-fit: contain !important; /* Image entière visible, proportions respectées */
+    max-height: 80vh; /* Limite hauteur pour très grandes images */
+}
+</style>
+
             <h3>⚡ Types de signaux électriques</h3>
             
             <div class="grid">
@@ -403,7 +587,7 @@
 			.image-single img:hover { transform: scale(1.05); }
 			.image-placeholder:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
 			</style>
-
+ 
 
         </section>
         
@@ -776,100 +960,26 @@ document.onkeydown = function(event) {
         </section>
     </div>
     
-    <footer style="background: #1d1d1f; color: white; text-align: center; padding: 2rem; margin-top: 3rem;">
-    <div style="max-width: 1200px; margin: auto;">
-        <p style="margin: 0 0 0.5rem 0; font-size: 0.9rem; opacity: 0.8;">
-            © 2026 Abdellah Chelouah. Tous droits réservés.
-        </p>
-        <p style="margin: 0; font-size: 0.8rem; opacity: 0.6;">
-            Ressource pédagogique STI2D - Diagramme Fonctionnel<br>
-            Lycée technique, Grenoble Académie
-        </p>
-    </div>
-    </footer>
-</body>
-</html>
-                    <h4>⚡ Chaîne d'Énergie</h4>
-                    <p>Assure la transformation et la transmission de l'énergie pour agir sur la matière d'œuvre.</p>
-                    <p><strong>Fonctions :</strong> Alimenter → Distribuer → Convertir → Transmettre → Agir</p>
-                </div>
-                <div class="card">
-                    <h4>💡 Chaîne d'Information</h4>
-                    <p>Gère l'acquisition, le traitement et la communication des informations pour piloter le système.</p>
-                    <p><strong>Fonctions :</strong> Acquérir → Traiter → Communiquer</p>
-                </div>
-            </div>
-            
 
-<div class="image-single" style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin: 2rem auto; max-width: 800px;">
-    
-    <div class="image-placeholder" style="background: linear-gradient(135deg, #E5E5E7, #D2D2D7); border: 2px dashed var(--border); border-radius: 18px; padding: 1.5rem; text-align: center; transition: transform 0.3s; cursor: zoom-in; position: relative; width: 100%; max-width: 800px;" onclick="zoomImage(this)">
-        <img src="images/diagramme_fonctionnel.png" alt="diagramme_fonctionnel" style="width: 100%; height: auto; max-width: 100%; object-fit: contain; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s; display: block; margin: 0 auto;">
-        <p style="margin-top: 1rem; font-weight: 500; color: var(--text);">Schéma global montrant l'interaction entre chaîne d'énergie et chaîne d'information</p>
-    </div>
-
-</div>
-
-<style>
-.image-single img:hover { transform: scale(1.05); }
-.image-placeholder:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
-/* Assure affichage intégral sans déformation */
-.image-single img {
-    object-fit: contain !important; /* Image entière visible, proportions respectées */
-    max-height: 80vh; /* Limite hauteur pour très grandes images */
-}
-</style>
-
-
-
-
-        </section>
 
 
         
-        <!-- CHAÎNE D'ÉNERGIE -->
-        <section id="energie" class="section">
-            <h2>⚡ LA CHAÎNE D'ÉNERGIE</h2>
-            
-            <div class="flow-diagram">
-                <div class="flow-box">ALIMENTER</div>
-                <span class="arrow">→</span>
-                <div class="flow-box">DISTRIBUER</div>
-                <span class="arrow">→</span>
-                <div class="flow-box">CONVERTIR</div>
-                <span class="arrow">→</span>
-                <div class="flow-box">TRANSMETTRE</div>
-                <span class="arrow">→</span>
-                <div class="flow-box">AGIR</div>
-            </div>
-            
-            <div class="highlight">
-                <p><strong>Objectif :</strong> L'action sur la matière d'œuvre nécessite de l'énergie. La chaîne d'énergie permet de transformer et d'acheminer l'énergie depuis sa source jusqu'à l'actionneur qui agit directement sur la matière d'œuvre.</p>
-            </div>
-            
- 
-<div class="image-single" style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin: 2rem auto; max-width: 800px;">
-    
-    <div class="image-placeholder" style="background: linear-gradient(135deg, #E5E5E7, #D2D2D7); border: 2px dashed var(--border); border-radius: 18px; padding: 1.5rem; text-align: center; transition: transform 0.3s; cursor: zoom-in; position: relative; width: 100%; max-width: 800px;" onclick="zoomImage(this)">
-        <img src="images/chaine_energie.png" alt="chaine_energie" style="width: 100%; height: auto; max-width: 100%; object-fit: contain; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s; display: block; margin: 0 auto;">
-        <p style="margin-top: 1rem; font-weight: 500; color: var(--text);">Schéma détaillé de la chaîne d'énergie avec exemples</p>
+<!-- ===================== CHAÎNE D'ÉNERGIE ===================== -->
+
+<section id="energie" class="section">
+    <h2>⚡ LA CHAÎNE D'ÉNERGIE</h2>
+
+    <div class="flow-diagram">
+        <div class="flow-box">ALIMENTER</div> →
+        <div class="flow-box">DISTRIBUER</div> →
+        <div class="flow-box">CONVERTIR</div> →
+        <div class="flow-box">TRANSMETTRE</div> →
+        <div class="flow-box">AGIR</div>
     </div>
+</section>
 
-</div>
+<!-- ===================== ALIMENTER ===================== -->
 
-<style>
-.image-single img:hover { transform: scale(1.05); }
-.image-placeholder:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
-/* Assure affichage intégral sans déformation */
-.image-single img {
-    object-fit: contain !important; /* Image entière visible, proportions respectées */
-    max-height: 80vh; /* Limite hauteur pour très grandes images */
-}
-</style>
-
-		
-        </section>
-        
         <!-- ALIMENTER -->
         <section id="alimenter" class="section">
             <h2>🔌 Fonction ALIMENTER</h2>
@@ -1054,12 +1164,14 @@ document.onkeydown = function(event) {
 </div>
 
 
-        </section>
+</section>
         
-        <!-- DISTRIBUER & CONVERTIR -->
-        <section id="distribuer" class="section">
-            <h2>🔀 Fonctions DISTRIBUER & CONVERTIR</h2>
-            
+
+<!-- ===================== DISTRIBUER & CONVERTIR ===================== -->
+
+<section id="distribuer" class="section">
+    <h2>🔀 Fonctions DISTRIBUER & CONVERTIR</h2>
+          
             <div class="highlight">
                 <p><strong>DISTRIBUER :</strong> Gérer la distribution de l'énergie disponible vers l'actionneur sur ordre de la chaîne d'information.</p>
                 <p><strong>CONVERTIR :</strong> Transformer l'énergie distribuée en une forme d'énergie mécanique utilisable (rotation ou translation).</p>
@@ -1241,14 +1353,13 @@ document.onkeydown = function(event) {
 }
 </style>
 
+</section>
 
+<!-- ===================== TRANSMETTRE & AGIR ===================== -->
 
-
-        </section>
-        
-<!-- TRANSMETTRE & AGIR -->
 <section id="transmettre" class="section">
     <h2>⚙️ Fonctions TRANSMETTRE & AGIR</h2>
+
     
     <div class="highlight">
         <p>Ces fonctions sont réalisées par des <strong>mécanismes de transmission</strong> qui transportent l'énergie mécanique de l'<strong>actionneur</strong> (moteur, vérin) vers l'<strong>effecteur</strong> (outil de coupe, pince...) pour agir sur la matière d'œuvre.</p>
@@ -1455,154 +1566,39 @@ document.onkeydown = function(event) {
 }
 </style>
 
-
-	
 </section>
 
-<style>
-.transmission-img {
-    width: 100%; height: 120px; object-fit: cover; border-radius: 12px; margin: 1rem 0;
-}
-.comparison-table {
-    width: 100%; border-collapse: collapse; margin: 1rem 0;
-}
-.comparison-table th, .comparison-table td {
-    padding: 0.8rem; text-align: center; border: 1px solid var(--border);
-}
-.comparison-table th { background: var(--primary); color: white; }
-.comparison-table td { font-size: 1.2rem; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
-</style>
 
-        </section>
-        
-        <!-- CHAÎNE D'INFORMATION -->
-        <section id="information" class="section">
-            <h2>💡 LA CHAÎNE D'INFORMATION</h2>
-            
-            <div class="flow-diagram">
-                <div class="flow-box">ACQUÉRIR</div>
-                <span class="arrow">→</span>
-                <div class="flow-box">TRAITER</div>
-                <span class="arrow">→</span>
-                <div class="flow-box">COMMUNIQUER</div>
-            </div>
-            
-            <div class="highlight">
-                <p><strong>Objectif :</strong> La chaîne d'information permet d'acquérir des informations sur l'état du système, de les traiter selon un programme ou une logique, puis de communiquer des ordres à la chaîne d'énergie ou des messages aux utilisateurs.</p>
-            </div>
-            
-            <h3>Sources d'information</h3>
-            
-            <ul>
-                <li>État du produit ou de ses éléments (chaîne d'énergie)</li>
-                <li>Interfaces homme/machine (boutons, écrans tactiles...)</li>
-                <li>Autres chaînes d'information (réseau, communication)</li>
-                <li>Bases de données, ressources partagées</li>
-            </ul>
-            
- 
-			<!-- Une seule image (si modal zoom déjà présente ailleurs, ignorez le modal/script) -->
-			<div class="image-single" style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin: 2rem auto; max-width: 600px;">
-				
-				<div class="image-placeholder" style="background: linear-gradient(135deg, #E5E5E7, #D2D2D7); border: 2px dashed var(--border); border-radius: 18px; padding: 1.5rem; text-align: center; transition: transform 0.3s; cursor: zoom-in; position: relative; width: 100%;" onclick="zoomImage(this)">
-					<img src="images/chaine_information.png" alt="chaine_information" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s;">
-					<p style="margin-top: 1rem; font-weight: 500; color: var(--text);">Schéma global de la chaîne d'information</p>
-				</div>
 
-			</div>
+<!-- ===================== ZOOM MODAL ===================== -->
 
-			<style>
-			.image-single img:hover { transform: scale(1.05); }
-			.image-placeholder:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
-			</style>
-
-			
-        </section>
-        
-        <!-- ACQUÉRIR -->
-        <section id="acquerir" class="section">
-            <h2>📡 Fonction ACQUÉRIR</h2>
-            
-            <div class="highlight">
-                <p><strong>Définition :</strong> À partir d'une grandeur physique à mesurer, le <strong>capteur</strong> délivre un signal électrique utilisable après adaptation pour le traitement.</p>
-            </div>
-            
- <h3>Familles de capteurs</h3>
-            
-<div class="grid">
-    <div class="card">
-        <h4>🌡️ Capteurs de température</h4>
-        <ul>
-            <li>Thermocouple</li>
-            <li>Thermistance (CTN, CTP)</li>
-            <li>Sonde PT100</li>
-        </ul>
-    </div>
-    
-    <div class="card">
-        <h4>📏 Capteurs de position</h4>
-        <ul>
-            <li>Capteur inductif</li>
-            <li>Capteur capacitif</li>
-            <li>Capteur photoélectrique</li>
-            <li>Interrupteur de position</li>
-        </ul>
-    </div>
-    
-    <div class="card">
-        <h4>🔢 Codeurs</h4>
-        <ul>
-            <li>Codeur incrémental</li>
-            <li>Codeur absolu</li>
-            <li>Codeur optique</li>
-            <li>Codeur magnétique</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h4>🧲 ILS (Interrupteur à Linguet Souple)</h4>
-        <ul>
-            <li>Detecteur de proximité magnétique</li>
-            <li>Contact reed</li>
-            <li>Porte, position fin de course</li>
-            <li>Très fiable en environnement difficile</li>
-        </ul>
-    </div>
-    
-    <div class="card">
-        <h4>🎛️ Résolveurs</h4>
-        <ul>
-            <li>Capteur de position angulaire</li>
-            <ul style="margin-left: 1rem;">
-                <li>Synchrone (analogique)</li>
-                <li>Brushless (numérique)</li>
-            </ul>
-            <li>Robuste pour servomoteurs</li>
-            <li>Précision continue (360°)</li>
-        </ul>
-    </div>
+<div id="zoomModal" style="display:none;position:fixed;z-index:1000;inset:0;background:rgba(0,0,0,0.9);">
+    <span onclick="closeZoom()" style="position:absolute;top:20px;right:30px;color:white;font-size:40px;cursor:pointer;">×</span>
+    <img id="zoomImg" style="max-width:90%;max-height:90%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);border-radius:12px;">
 </div>
 
-				
-				
-<div class="image-single" style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin: 2rem auto; max-width: 800px;">
-    
-    <div class="image-placeholder" style="background: linear-gradient(135deg, #E5E5E7, #D2D2D7); border: 2px dashed var(--border); border-radius: 18px; padding: 1.5rem; text-align: center; transition: transform 0.3s; cursor: zoom-in; position: relative; width: 100%; max-width: 800px;" onclick="zoomImage(this)">
-        <img src="images/tableau_capteurs.png" alt="tableau_capteurs" style="width: 100%; height: auto; max-width: 100%; object-fit: contain; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s; display: block; margin: 0 auto;">
-        <p style="margin-top: 1rem; font-weight: 500; color: var(--text);">Les principales familles de capteurs</p>
-    </div>
-
-</div>
-
-<style>
-.image-single img:hover { transform: scale(1.05); }
-.image-placeholder:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
-/* Assure affichage intégral sans déformation */
-.image-single img {
-    object-fit: contain !important; /* Image entière visible, proportions respectées */
-    max-height: 80vh; /* Limite hauteur pour très grandes images */
+<script>
+function zoomImage(el) {
+    const img = el.querySelector("img");
+    document.getElementById("zoomImg").src = img.src;
+    document.getElementById("zoomModal").style.display = "block";
 }
-</style>
-				
-                    
+function closeZoom() {
+    document.getElementById("zoomModal").style.display = "none";
+}
+</script>
+
+
+    <footer style="background: #1d1d1f; color: white; text-align: center; padding: 2rem; margin-top: 3rem;">
+    <div style="max-width: 1200px; margin: auto;">
+        <p style="margin: 0 0 0.5rem 0; font-size: 0.9rem; opacity: 0.8;">
+            © 2026 Abdellah Chelouah. Tous droits réservés.
+        </p>
+        <p style="margin: 0; font-size: 0.8rem; opacity: 0.6;">
+            Ressource pédagogique STI2D - Diagramme Fonctionnel<br>
+            Lycée technique, Grenoble Académie
+        </p>
+    </div>
+    </footer>
+</body>
+</html>
