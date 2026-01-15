@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaînes d'Énergie et d'Information</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1d1d1f;
+            background: #f5f5f7;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+        
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #d2d2d7;
+            padding: 1rem 2rem;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        nav a {
+            color: #1d1d1f;
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        
+        nav a:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 18px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            animation: fadeIn 0.6s ease;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        h2 {
+            font-size: 2rem;
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            color: #764ba2;
+            margin: 2rem 0 1rem;
+            font-weight: 600;
+        }
+        
+        h4 {
+            font-size: 1.2rem;
+            color: #1d1d1f;
+            margin: 1.5rem 0 1rem;
+            font-weight: 600;
+        }
+        
+        .image-placeholder {
+            background: linear-gradient(135deg, #f5f5f7 0%, #e8e8ed 100%);
+            border: 2px dashed #c7c7cc;
+            border-radius: 12px;
+            padding: 3rem;
+            margin: 2rem 0;
+            text-align: center;
+            color: #86868b;
+            font-style: italic;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .card {
+            background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid #e5e5ea;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+        
+        .card h4 {
+            color: #667eea;
+            margin-top: 0;
+        }
+        
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        ul li {
+            padding: 0.5rem 0 0.5rem 2rem;
+            position: relative;
+        }
+        
+        ul li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border-left: 4px solid #667eea;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        
+        .attention {
+            background: linear-gradient(135deg, #ff453a15 0%, #ff375f15 100%);
+            border-left: 4px solid #ff453a;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        th {
+            background: #667eea;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #e5e5ea;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        tr:hover {
+            background: #f5f5f7;
+        }
+        
+        .flow-diagram {
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .flow-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem 2rem;
+            border-radius: 10px;
+            font-weight: 600;
+            text-align: center;
+            min-width: 150px;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        .arrow {
+            color: #667eea;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section {
+                padding: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>📚 Dossier ressource sur les chaînes d'Énergie et d'Information</h1>
+        <p>Niveau Première et Terminale STI2D - Compétences essentielles</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#energie">Chaîne d'Énergie</a></li>
+            <li><a href="#alimenter">Alimenter</a></li>
+            <li><a href="#distribuer">Distribuer & Convertir</a></li>
+            <li><a href="#transmettre">Transmettre & Agir</a></li>
+            <li><a href="#information">Chaîne d'Information</a></li>
+            <li><a href="#acquerir">Acquérir</a></li>
+            <li><a href="#traiter">Traiter</a></li>
+            <li><a href="#communiquer">Communiquer</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <!-- INTRODUCTION -->
+        <section id="intro" class="section">
+            <h2>🎯 Introduction</h2>
+            <p>Un système automatisé est composé de deux chaînes fonctionnelles complémentaires :</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <h4>⚡ Capteurs de courant/tension</h4>
+                    <ul>
+                        <li>Ampèremètre</li>
+                        <li>Voltmètre</li>
+                        <li>Transformateur de courant</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h4>💨 Capteurs de pression</h4>
+                    <ul>
+                        <li>Pressostat</li>
+                        <li>Capteur piézorésistif</li>
+                        <li>Manomètre</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h4>🔄 Capteurs de vitesse/rotation</h4>
+                    <ul>
+                        <li>Tachymètre</li>
+                        <li>Codeur incrémental</li>
+                        <li>Capteur à effet Hall</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h4>⚖️ Capteurs de force/couple</h4>
+                    <ul>
+                        <li>Jauge de contrainte</li>
+                        <li>Cellule de charge</li>
+                        <li>Couplemètre</li>
+                    </ul>
+                </div>
+            </div>
+            
+ 			
+			<!-- Une seule image (si modal zoom déjà présente ailleurs, ignorez le modal/script) -->
+			<div class="image-single" style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin: 2rem auto; max-width: 600px;">
+				
+				<div class="image-placeholder" style="background: linear-gradient(135deg, #E5E5E7, #D2D2D7); border: 2px dashed var(--border); border-radius: 18px; padding: 1.5rem; text-align: center; transition: transform 0.3s; cursor: zoom-in; position: relative; width: 100%;" onclick="zoomImage(this)">
+					<img src="images/tableau_capteurs.png" alt="tableau_capteurs" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s;">
+					<p style="margin-top: 1rem; font-weight: 500; color: var(--text);">Exemples de capteurs avec leurs applications</p>
+				</div>
+
+			</div>
+
+			<style>
+			.image-single img:hover { transform: scale(1.05); }
+			.image-placeholder:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
+			</style>
+ 
+            <h3>⚡ Types de signaux électriques</h3>
+            
+            <div class="grid">
+                <div class="card">
+                    <h4>TOR (Tout Ou Rien)</h4>
+                    <p><strong>Signal logique binaire</strong></p>
+                    <ul>
+                        <li>2 états : 0 ou 1</li>
+                        <li>Bas (0V) / Haut (5V, 24V...)</li>
+                        <li>Exemples : bouton poussoir, interrupteur, capteur de fin de course</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h4>Analogique</h4>
+                    <p><strong>Signal continu variable</strong></p>
+                    <ul>
+                        <li>Valeur continue dans une plage</li>
+                        <li>Exemple : 0-10V, 4-20mA</li>
+                        <li>Représente température, pression, vitesse...</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h4>Numérique</h4>
+                    <p><strong>Signal codé en binaire</strong></p>
+                    <ul>
+                        <li>Suite de bits (0 et 1)</li>
+                        <li>Protocoles : RS232, USB, Ethernet...</li>
+                        <li>Communication entre systèmes</li>
+                    </ul>
+                </div>
+            </div>
+            
+			
+			<!-- Une seule image (si modal zoom déjà présente ailleurs, ignorez le modal/script) -->
+			<div class="image-single" style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin: 2rem auto; max-width: 600px;">
+				
+				<div class="image-placeholder" style="background: linear-gradient(135deg, #E5E5E7, #D2D2D7); border: 2px dashed var(--border); border-radius: 18px; padding: 1.5rem; text-align: center; transition: transform 0.3s; cursor: zoom-in; position: relative; width: 100%;" onclick="zoomImage(this)">
+					<img src="images/types_signaux.png" alt="types_signaux" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s;">
+					<p style="margin-top: 1rem; font-weight: 500; color: var(--text);">Formes d'ondes des 3 types de signaux (TOR, Analogique, Numérique)</p>
+				</div>
+
+			</div>
+
+			<style>
+			.image-single img:hover { transform: scale(1.05); }
+			.image-placeholder:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
+			</style>
+
+
+        </section>
+        
+        <!-- TRAITER -->
+        <section id="traiter" class="section">
+            <h2>🖥️ Fonction TRAITER</h2>
+            
+            <div class="highlight">
+                <p><strong>Rôle :</strong> Analyser les informations acquises et générer des ordres pour la chaîne d'énergie ou des messages pour les utilisateurs, selon une logique définie.</p>
+            </div>
+            
+            <h3>Types de traitement</h3>
+            
+            <div class="grid">
+                <div class="card">
+                    <h4>🔌 Traitement Câblé</h4>
+                    <p><strong>Caractéristiques :</strong></p>
+                    <ul>
+                        <li>Logique figée et non modifiable</li>
+                        <li>Réalisé par circuits électriques ou cartes électroniques</li>
+                        <li>Utilisé pour systèmes simples ou sécuritaires</li>
+                        <li>Très fiable mais peu flexible</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h4>💻 Traitement Programmé</h4>
+                    <p><strong>Caractéristiques :</strong></p>
+                    <ul>
+                        <li>Logique modifiable par programme</li>
+                        <li>Évolutif et adaptable</li>
+                        <li>Technologies : API, microcontrôleurs, ordinateurs</li>
+                        <li>Facilite maintenance et évolution</li>
+                    </ul>
+                </div>
+            </div>
+
+<!-- Une seule image (si modal zoom déjà présente ailleurs, ignorez le modal/script) -->
+<div class="image-single" style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin: 2rem auto; max-width: 600px;">
+    
+    <div class="image-placeholder" style="background: linear-gradient(135deg, #E5E5E7, #D2D2D7); border: 2px dashed var(--border); border-radius: 18px; padding: 1.5rem; text-align: center; transition: transform 0.3s; cursor: zoom-in; position: relative; width: 100%;" onclick="zoomImage(this)">
+        <img src="images/unites_traitement.png" alt="unites_traitement" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s;">
+        <p style="margin-top: 1rem; font-weight: 500; color: var(--text);">Les différentes unités de traitement suivant le nombre d'E/S et la puissance de calcul ainsi que l'immunité au bruit électromagnétique</p>
+    </div>
+
+</div>
+
+<style>
+.image-single img:hover { transform: scale(1.05); }
+.image-placeholder:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
+</style>
+			
+            
+            <h3>🏗️ Structure des unités programmables</h3>
+            
+            <table>
+                <tr>
+                    <th>Composant</th>
+                    <th>Rôle</th>
+                </tr>
+                <tr>
+                    <td><strong>Unité centrale (CPU)</strong></td>
+                    <td>Microprocesseur qui exécute les instructions du programme</td>
+                </tr>
+                <tr>
+                    <td><strong>Mémoire</strong></td>
+                    <td>Conserve le programme et les données pendant le fonctionnement</td>
+                </tr>
+                <tr>
+                    <td><strong>Module d'entrées</strong></td>
+                    <td>Adapte les signaux des capteurs pour l'unité de traitement</td>
+                </tr>
+                <tr>
+                    <td><strong>Module de sorties</strong></td>
+                    <td>Convertit les données en ordres exploitables (actionneurs)</td>
+                </tr>
+                <tr>
+                    <td><strong>Alimentation</strong></td>
+                    <td>Fournit l'énergie électrique aux différents modules</td>
+                </tr>
+                <tr>
+                    <td><strong>Horloge</strong></td>
+                    <td>Cadence les opérations et synchronise le système</td>
+                </tr>
+            </table>
+            
+<!-- Une seule image (si modal zoom déjà présente ailleurs, ignorez le modal/script) -->
+<div class="image-single" style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin: 2rem auto; max-width: 600px;">
+    
+    <div class="image-placeholder" style="background: linear-gradient(135deg, #E5E5E7, #D2D2D7); border: 2px dashed var(--border); border-radius: 18px; padding: 1.5rem; text-align: center; transition: transform 0.3s; cursor: zoom-in; position: relative; width: 100%;" onclick="zoomImage(this)">
+        <img src="images/api.png" alt="Schéma bloc d'une unité de traitement programmable (API)" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s;">
+        <p style="margin-top: 1rem; font-weight: 500; color: var(--text);">Schéma bloc d'une unité de traitement programmable (API)</p>
+    </div>
+
+</div>
+
+<style>
+.image-single img:hover { transform: scale(1.05); }
+.image-placeholder:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
+</style>
+
+           
+            <div class="highlight">
+                <p><strong>💡 À retenir :</strong> Les signaux entrants et sortants de l'unité de traitement sont <strong>numériques</strong>. Les signaux analogiques doivent être convertis (CAN : Convertisseur Analogique-Numérique).</p>
+            </div>
+        </section>
+        
+        <!-- COMMUNIQUER -->
+        <section id="communiquer" class="section">
+            <h2>📢 Fonction COMMUNIQUER</h2>
+            
+            <div class="highlight">
+                <p><strong>Rôle :</strong> Assurer la transmission des informations entre le système, les opérateurs et les autres systèmes (ordres, messages, comptes-rendus, consignes).</p>
+            </div>
+            
+            <h3>🔄 Rôle des informations</h3>
+            
+            <div class="grid">
+                <div class="card">
+                    <h4>📨 Messages</h4>
+                    <p>De la <strong>commande → opérateur</strong></p>
+                    <p>Affichage d'états, alarmes, résultats</p>
+                </div>
+                
+                <div class="card">
+                    <h4>📝 Consignes</h4>
+                    <p>De l'<strong>opérateur → commande</strong></p>
+                    <p>Instructions, paramètres, réglages</p>
+                </div>
+                
+                <div class="card">
+                    <h4>⚡ Ordres</h4>
+                    <p>De la <strong>commande → partie opérative</strong></p>
+                    <p>Commandes d'actionneurs, marche/arrêt</p>
+                </div>
+                
+                <div class="card">
+                    <h4>📊 Comptes-rendus</h4>
+                    <p>De la <strong>partie opérative → commande</strong></p>
+                    <p>État des capteurs, positions, défauts</p>
+                </div>
+            </div>
+            
+            <h3>🖥️ Dialogue opérateur</h3>
+            
+            <div class="grid">
+                <div class="card">
+                    <h4>Boutons et voyants</h4>
+                    <p>Interface simple TOR</p>
+                    <ul>
+                        <li>Boutons poussoirs</li>
+                        <li>Sélecteurs</li>
+                        <li>Voyants lumineux</li>
+                        <li>Afficheurs 7 segments</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h4>Terminal/Écran tactile</h4>
+                    <p>Interface évoluée</p>
+                    <ul>
+                        <li>Écrans LCD/TFT</li>
+                        <li>Interface tactile</li>
+                        <li>Menus et graphiques</li>
+                        <li>Synoptiques animés</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3>🌐 Types de communication</h3>
+            
+            <div class="card">
+                <h4>📺 Supervision</h4>
+                <p>Permet de visualiser et contrôler le système à distance via PC ou terminal spécialisé.</p>
+                <ul>
+                    <li>Vue d'ensemble du processus</li>
+                    <li>Historiques et courbes</li>
+                    <li>Alarmes centralisées</li>
+                </ul>
+            </div>
+            
+            <div class="card" style="margin-top: 1rem;">
+                <h4>🌍 Communication distante</h4>
+                <p>Télésurveillance, télédiagnostic, télémaintenance via Internet ou réseaux dédiés.</p>
+                <ul>
+                    <li>Protocoles : TCP/IP, HTTP, OPC...</li>
+                    <li>Accès sécurisé distant</li>
+                    <li>Maintenance préventive</li>
+                </ul>
+            </div>
+            
+ <div class="image-gallery" style="display: flex; flex-direction: column; align-items: center; gap: 2rem; margin: 2rem auto; max-width: 800px;">
+    
+    <div class="image-placeholder" style="background: linear-gradient(135deg, #E5E5E7, #D2D2D7); border: 2px dashed var(--border); border-radius: 18px; padding: 1.5rem; text-align: center; transition: transform 0.3s; cursor: zoom-in; position: relative; width: 100%; max-width: 600px;" onclick="zoomImage(this)">
+        <img src="images/pupitre.jpg" alt="pupitre" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s;">
+        <p style="margin-top: 1rem; font-weight: 500; color: var(--text);">Exemples d'interfaces de communication : le pupitre de contrôle</p>
+    </div>
+
+    <div class="image-placeholder" style="background: linear-gradient(135deg, #E5E5E7, #D2D2D7); border: 2px dashed var(--border); border-radius: 18px; padding: 1.5rem; text-align: center; transition: transform 0.3s; cursor: zoom-in; position: relative; width: 100%; max-width: 600px;" onclick="zoomImage(this)">
+        <img src="images/ecran_tactile.jpg" alt="ecran_tactile" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s;">
+        <p style="margin-top: 1rem; font-weight: 500; color: var(--text);">Exemples d'interfaces de communication : l'écran tactile</p>
+
+    <div class="image-placeholder" style="background: linear-gradient(135deg, #E5E5E7, #D2D2D7); border: 2px dashed var(--border); border-radius: 18px; padding: 1.5rem; text-align: center; transition: transform 0.3s; cursor: zoom-in; position: relative; width: 100%; max-width: 600px;" onclick="zoomImage(this)">
+        <img src="images/supervision.jpg" alt="supervision" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s;">
+        <p style="margin-top: 1rem; font-weight: 500; color: var(--text);">Exemples d'interfaces de communication : la supervision)</p>
+    </div>
+
+</div>
+
+<!-- Modal pour zoom -->
+<div id="zoomModal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9);">
+    <span onclick="closeZoom()" style="position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; font-weight: bold; cursor: pointer;">×</span>
+    <img id="zoomImg" style="max-width: 90%; max-height: 90%; margin: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border-radius: 12px;">
+</div>
+
+
+
+
+            
+            <h3>🔗 Types de liaisons</h3>
+            
+            <table>
+                <tr>
+                    <th>Type de liaison</th>
+                    <th>Caractéristiques</th>
+                    <th>Usage</th>
+                </tr>
+                <tr>
+                    <td><strong>Liaison filaire simple</strong></td>
+                    <td>1 à 3 fils, signal TOR</td>
+                    <td>Ordres simples, comptes-rendus basiques</td>
+                </tr>
+                <tr>
+                    <td><strong>Bus de terrain</strong></td>
+                    <td>Câble multipoints, plusieurs équipements</td>
+                    <td>AS-i, Profibus, CANopen, Modbus...</td>
+                </tr>
+                <tr>
+                    <td><strong>Liaison série</strong></td>
+                    <td>RS232, RS485, USB</td>
+                    <td>Communication PC-automate, périphériques</td>
+                </tr>
+                <tr>
+                    <td><strong>Réseau Ethernet</strong></td>
+                    <td>TCP/IP, haut débit</td>
+                    <td>Supervision, communication inter-systèmes</td>
+                </tr>
+                <tr>
+                    <td><strong>Sans fil</strong></td>
+                    <td>WiFi, Bluetooth, ZigBee, LoRa</td>
+                    <td>Capteurs mobiles, IoT industriel</td>
+                </tr>
+            </table>
+            
+			
+<div class="image-gallery" style="display: flex; flex-direction: column; align-items: center; gap: 2rem; margin: 2rem auto; max-width: 800px;">
+    
+    <div class="image-placeholder" style="background: linear-gradient(135deg, #E5E5E7, #D2D2D7); border: 2px dashed var(--border); border-radius: 18px; padding: 1.5rem; text-align: center; transition: transform 0.3s; cursor: zoom-in; position: relative; width: 100%; max-width: 600px;" onclick="zoomImage(this)">
+        <img src="images/liaisons_sans_fil.png" alt="liaisons sans fil" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s;">
+        <p style="margin-top: 1rem; font-weight: 500; color: var(--text);">Chaîne d'information - les liaisons sans fil</p>
+    </div>
+
+    <div class="image-placeholder" style="background: linear-gradient(135deg, #E5E5E7, #D2D2D7); border: 2px dashed var(--border); border-radius: 18px; padding: 1.5rem; text-align: center; transition: transform 0.3s; cursor: zoom-in; position: relative; width: 100%; max-width: 600px;" onclick="zoomImage(this)">
+        <img src="images/liaisons_serie.png" alt="liaisons série" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s;">
+        <p style="margin-top: 1rem; font-weight: 500; color: var(--text);">La transmission d'information - liaison série</p>
+    </div>
+
+    <div class="image-placeholder" style="background: linear-gradient(135deg, #E5E5E7, #D2D2D7); border: 2px dashed var(--border); border-radius: 18px; padding: 1.5rem; text-align: center; transition: transform 0.3s; cursor: zoom-in; position: relative; width: 100%; max-width: 600px;" onclick="zoomImage(this)">
+        <img src="images/bus_terrain.png" alt="bus_terrain" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s;">
+        <p style="margin-top: 1rem; font-weight: 500; color: var(--text);">La transmission d'information - le bus de terrain</p>
+    </div>
+
+    <div class="image-placeholder" style="background: linear-gradient(135deg, #E5E5E7, #D2D2D7); border: 2px dashed var(--border); border-radius: 18px; padding: 1.5rem; text-align: center; transition: transform 0.3s; cursor: zoom-in; position: relative; width: 100%; max-width: 600px;" onclick="zoomImage(this)">
+        <img src="images/serie_parallele.png" alt="serie_parallele" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s;">
+        <p style="margin-top: 1rem; font-weight: 500; color: var(--text);">Principe de la transmission par liaison série et parallèle</p>
+    </div>
+
+</div>
+
+<!-- Modal pour zoom -->
+<div id="zoomModal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9);">
+    <span onclick="closeZoom()" style="position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; font-weight: bold; cursor: pointer;">×</span>
+    <img id="zoomImg" style="max-width: 90%; max-height: 90%; margin: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border-radius: 12px;">
+</div>
+
+<style>
+.image-gallery { 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 2rem; 
+    margin: 2rem auto; 
+    max-width: 800px; 
+}
+.image-placeholder { 
+    width: 100%; 
+    max-width: 600px; 
+}
+.image-gallery img:hover { transform: scale(1.05); }
+.image-placeholder:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
+#zoomModal img { transition: transform 0.3s; cursor: zoom-out; }
+#zoomModal img:hover { transform: scale(1.05); }
+</style>
+
+<script>
+function zoomImage(container) {
+    const img = container.querySelector('img');
+    const modal = document.getElementById('zoomModal');
+    const modalImg = document.getElementById('zoomImg');
+    modalImg.src = img.src;
+    modalImg.alt = img.alt;
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeZoom() {
+    document.getElementById('zoomModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+window.onclick = function(event) {
+    const modal = document.getElementById('zoomModal');
+    if (event.target == modal) closeZoom();
+}
+document.onkeydown = function(event) {
+    if (event.key === 'Escape') closeZoom();
+};
+</script>
+
+
+
+        </section>
+        
+        <!-- CONCLUSION -->
+        <section id="conclusion" class="section">
+            <h2>🎓 Points clés à retenir</h2>
+            
+            <div class="grid">
+                <div class="card">
+                    <h4>⚡ Chaîne d'Énergie</h4>
+                    <ul>
+                        <li>ALIMENTER : fournir l'énergie nécessaire</li>
+                        <li>DISTRIBUER : gérer la distribution (préactionneur)</li>
+                        <li>CONVERTIR : transformer en énergie mécanique (actionneur)</li>
+                        <li>TRANSMETTRE : adapter le mouvement (mécanismes)</li>
+                        <li>AGIR : action finale sur la matière d'œuvre</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h4>💡 Chaîne d'Information</h4>
+                    <ul>
+                        <li>ACQUÉRIR : capter les grandeurs physiques (capteurs)</li>
+                        <li>TRAITER : analyser et décider (API, microcontrôleur)</li>
+                        <li>COMMUNIQUER : échanger les informations (IHM, réseau)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="highlight" style="margin-top: 2rem;">
+                <h4>🎯 Compétences développées</h4>
+                <p>Niveau d'acquisition : <strong>"Je sais en parler"</strong></p>
+                <ul>
+                    <li>Identifier les fonctions d'une chaîne d'énergie et d'information</li>
+                    <li>Reconnaître les composants et leur rôle</li>
+                    <li>Lire et interpréter un schéma électrique ou pneumatique</li>
+                    <li>Comprendre les liaisons mécaniques et les transformations de mouvement</li>
+                    <li>Distinguer les types de signaux et de communication</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    
+    <footer style="background: #1d1d1f; color: white; text-align: center; padding: 2rem; margin-top: 3rem;">
+    <div style="max-width: 1200px; margin: auto;">
+        <p style="margin: 0 0 0.5rem 0; font-size: 0.9rem; opacity: 0.8;">
+            © 2026 Abdellah Chelouah. Tous droits réservés.
+        </p>
+        <p style="margin: 0; font-size: 0.8rem; opacity: 0.6;">
+            Ressource pédagogique STI2D - Diagramme Fonctionnel<br>
+            Lycée technique, Grenoble Académie
+        </p>
+    </div>
+    </footer>
+</body>
+</html>
+                    <h4>⚡ Chaîne d'Énergie</h4>
+                    <p>Assure la transformation et la transmission de l'énergie pour agir sur la matière d'œuvre.</p>
+                    <p><strong>Fonctions :</strong> Alimenter → Distribuer → Convertir → Transmettre → Agir</p>
+                </div>
+                <div class="card">
+                    <h4>💡 Chaîne d'Information</h4>
+                    <p>Gère l'acquisition, le traitement et la communication des informations pour piloter le système.</p>
+                    <p><strong>Fonctions :</strong> Acquérir → Traiter → Communiquer</p>
+                </div>
+            </div>
+            
+
+<div class="image-single" style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin: 2rem auto; max-width: 800px;">
+    
+    <div class="image-placeholder" style="background: linear-gradient(135deg, #E5E5E7, #D2D2D7); border: 2px dashed var(--border); border-radius: 18px; padding: 1.5rem; text-align: center; transition: transform 0.3s; cursor: zoom-in; position: relative; width: 100%; max-width: 800px;" onclick="zoomImage(this)">
+        <img src="images/diagramme_fonctionnel.png" alt="diagramme_fonctionnel" style="width: 100%; height: auto; max-width: 100%; object-fit: contain; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s; display: block; margin: 0 auto;">
+        <p style="margin-top: 1rem; font-weight: 500; color: var(--text);">Schéma global montrant l'interaction entre chaîne d'énergie et chaîne d'information</p>
+    </div>
+
+</div>
+
+<style>
+.image-single img:hover { transform: scale(1.05); }
+.image-placeholder:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
+/* Assure affichage intégral sans déformation */
+.image-single img {
+    object-fit: contain !important; /* Image entière visible, proportions respectées */
+    max-height: 80vh; /* Limite hauteur pour très grandes images */
+}
+</style>
+
+
+
+
+        </section>
+
+
+        
+        <!-- CHAÎNE D'ÉNERGIE -->
+        <section id="energie" class="section">
+            <h2>⚡ LA CHAÎNE D'ÉNERGIE</h2>
+            
+            <div class="flow-diagram">
+                <div class="flow-box">ALIMENTER</div>
+                <span class="arrow">→</span>
+                <div class="flow-box">DISTRIBUER</div>
+                <span class="arrow">→</span>
+                <div class="flow-box">CONVERTIR</div>
+                <span class="arrow">→</span>
+                <div class="flow-box">TRANSMETTRE</div>
+                <span class="arrow">→</span>
+                <div class="flow-box">AGIR</div>
+            </div>
+            
+            <div class="highlight">
+                <p><strong>Objectif :</strong> L'action sur la matière d'œuvre nécessite de l'énergie. La chaîne d'énergie permet de transformer et d'acheminer l'énergie depuis sa source jusqu'à l'actionneur qui agit directement sur la matière d'œuvre.</p>
+            </div>
+            
+ 
+<div class="image-single" style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin: 2rem auto; max-width: 800px;">
+    
+    <div class="image-placeholder" style="background: linear-gradient(135deg, #E5E5E7, #D2D2D7); border: 2px dashed var(--border); border-radius: 18px; padding: 1.5rem; text-align: center; transition: transform 0.3s; cursor: zoom-in; position: relative; width: 100%; max-width: 800px;" onclick="zoomImage(this)">
+        <img src="images/chaine_energie.png" alt="chaine_energie" style="width: 100%; height: auto; max-width: 100%; object-fit: contain; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s; display: block; margin: 0 auto;">
+        <p style="margin-top: 1rem; font-weight: 500; color: var(--text);">Schéma détaillé de la chaîne d'énergie avec exemples</p>
+    </div>
+
+</div>
+
+<style>
+.image-single img:hover { transform: scale(1.05); }
+.image-placeholder:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
+/* Assure affichage intégral sans déformation */
+.image-single img {
+    object-fit: contain !important; /* Image entière visible, proportions respectées */
+    max-height: 80vh; /* Limite hauteur pour très grandes images */
+}
+</style>
+
+		
+        </section>
+        
+        <!-- ALIMENTER -->
+        <section id="alimenter" class="section">
+            <h2>🔌 Fonction ALIMENTER</h2>
+            <h3>Les types d'énergie</h3>
+            
+            <div class="grid">
+                <div class="card">
+                    <h4>Énergie Électrique par Réseau (EDF)</h4>
+                    <ul>
+                        <li><strong>Courant alternatif 50 Hz</strong></li>
+                        <li>230V monophasé (usage domestique)</li>
+                        <li>400V triphasé (usage industriel)</li>
+                        <li>Nécessite raccordement et protection</li>
+                    </ul>
+                    
+                    <h4 style="margin-top: 2rem;">Niveaux de tension :</h4>
+                    <table>
+                        <tr>
+                            <th>Type</th>
+                            <th>Tension</th>
+                            <th>Usage</th>
+                        </tr>
+                        <tr>
+                            <td>THT</td>
+                            <td>400 000 V - 225 000 V</td>
+                            <td>Transport longue distance</td>
+                        </tr>
+                        <tr>
+                            <td>HT</td>
+                            <td>90 000 V - 63 000 V</td>
+                            <td>Industries lourdes</td>
+                        </tr>
+                        <tr>
+                            <td>MT</td>
+                            <td>30 000 V - 15 000 V</td>
+                            <td>PME, services</td>
+                        </tr>
+                        <tr>
+                            <td>BT</td>
+                            <td>400 V - 230 V</td>
+                            <td>Ménages, artisans</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div class="card">
+                    <h4>Énergie Électrique Locale</h4>
+                    <ul>
+                        <li><strong>Piles :</strong> non rechargeables, transformation chimique → électrique</li>
+                        <li><strong>Accumulateurs :</strong> rechargeables (batteries)</li>
+                        <li><strong>Photopiles :</strong> énergie solaire → électrique</li>
+                        <li><strong>Éoliennes :</strong> vent → rotation → électrique</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h4>Énergie Pneumatique</h4>
+                    <p>Air comprimé produit sur place, nécessite un système de conditionnement :</p>
+                    <ul>
+                        <li><strong>Compresseur :</strong> production d'air comprimé</li>
+                        <li><strong>Filtre :</strong> élimine impuretés solides et liquides</li>
+                        <li><strong>Manorégleur :</strong> régule la pression</li>
+                        <li><strong>Lubrificateur :</strong> graissage et protection</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3>Adaptation de l'énergie électrique</h3>
+            
+ <div class="conversion-section" style="max-width: 1200px; margin: 2rem auto;">
+    
+<div class="conversion-section" style="max-width: 1000px; margin: 2rem auto;">
+
+    <!-- Schéma compact avec images plus grandes -->
+    <div class="conversion-compact" style="display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding: 1.5rem; background: linear-gradient(135deg, #F8F9FA, #E9ECEF); border-radius: 18px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); margin-bottom: 1.5rem;">
+        
+        <!-- Entrée -->
+        <div style="text-align: center; min-width: 80px;">
+            <p style="font-weight: 600; margin: 0; color: var(--primary); font-size: 0.95rem;">230V AC<br><small style="font-size: 0.75rem;">Alternatif</small></p>
+        </div>
+
+        <!-- Transformateur -->
+        <div class="image-placeholder" style="cursor: zoom-in; flex: 0 0 140px;" onclick="zoomImage(this)">
+            <img src="images/transformateur.png" alt="Transformateur" style="width: 100%; height: auto; max-height: 120px; object-fit: contain; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); display: block; margin: 0 auto;">
+            <p style="font-size: 0.8rem; font-weight: 500; margin: 0.3rem 0 0 0;">Transformateur</p>
+        </div>
+
+        <!-- Flèche centrale -->
+        <div style="font-size: 1.8rem; color: var(--primary); font-weight: bold; flex: 0 0 30px; text-align: center;">➜</div>
+
+        <!-- Redresseur -->
+        <div class="image-placeholder" style="cursor: zoom-in; flex: 0 0 140px;" onclick="zoomImage(this)">
+            <img src="images/redresseur.png" alt="Redresseur" style="width: 100%; height: auto; max-height: 120px; object-fit: contain; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); display: block; margin: 0 auto;">
+            <p style="font-size: 0.8rem; font-weight: 500; margin: 0.3rem 0 0 0;">Redresseur</p>
+        </div>
+
+        <!-- Sortie -->
+        <div style="text-align: center; min-width: 80px;">
+            <p style="font-weight: 600; margin: 0; color: var(--primary); font-size: 0.95rem;">24V DC<br><small style="font-size: 0.75rem;">Continu</small></p>
+        </div>
+
+    </div>
+
+    <!-- Vos cards explicatives (inchangées) -->
+    <div class="grid">
+        <div class="card">
+            <h4>🔄 Le Transformateur</h4>
+            <p><strong>Action :</strong> Modifie la tension</p>
+            <p>230V → 48V, 24V, 12V, 6V, 5V...</p>
+            <p>Conserve la nature alternative du courant</p>
+        </div>
+        
+        <div class="card">
+            <h4>📐 Le Redresseur</h4>
+            <p><strong>Action :</strong> Modifie la forme du courant</p>
+            <p>Courant alternatif (∼) → Courant continu (⎓)</p>
+        </div>
+    </div>
+
+</div>
+
+<style>
+.conversion-compact {
+    flex-wrap: nowrap; /* Empêche retour ligne */
+    gap: 1rem;
+}
+.conversion-compact img:hover {
+    transform: scale(1.08);
+}
+.conversion-compact .image-placeholder {
+    padding: 0.5rem;
+    transition: transform 0.3s ease;
+}
+.conversion-compact .image-placeholder:hover {
+    transform: scale(1.03);
+}
+@media (max-width: 768px) {
+    .conversion-compact {
+        flex-direction: column;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+}
+</style>
+
+            
+
+
+
+<div class="image-gallery" style="display: flex; flex-direction: column; align-items: center; gap: 2rem; margin: 2rem auto; max-width: 800px;">
+    
+    <div class="image-placeholder" style="background: linear-gradient(135deg, #E5E5E7, #D2D2D7); border: 2px dashed var(--border); border-radius: 18px; padding: 1.5rem; text-align: center; transition: transform 0.3s; cursor: zoom-in; position: relative; width: 100%; max-width: 600px;" onclick="zoomImage(this)">
+        <img src="images/reseau.png" alt="reseau" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s;">
+        <p style="margin-top: 1rem; font-weight: 500; color: var(--text);">sources d'énergie : réseau électrique EDF</p>
+    </div>
+
+    <div class="image-placeholder" style="background: linear-gradient(135deg, #E5E5E7, #D2D2D7); border: 2px dashed var(--border); border-radius: 18px; padding: 1.5rem; text-align: center; transition: transform 0.3s; cursor: zoom-in; position: relative; width: 100%; max-width: 600px;" onclick="zoomImage(this)">
+        <img src="images/energie_chimique.png" alt="energie_chimique" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s;">
+        <p style="margin-top: 1rem; font-weight: 500; color: var(--text);">sources d'énergie : piles - batteries</p>
+    </div>
+
+    <div class="image-placeholder" style="background: linear-gradient(135deg, #E5E5E7, #D2D2D7); border: 2px dashed var(--border); border-radius: 18px; padding: 1.5rem; text-align: center; transition: transform 0.3s; cursor: zoom-in; position: relative; width: 100%; max-width: 600px;" onclick="zoomImage(this)">
+        <img src="images/photopiles.png" alt="photopiles" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s;">
+        <p style="margin-top: 1rem; font-weight: 500; color: var(--text);">sources d'énergie : photopiles</p>
+    </div>
+
+    <div class="image-placeholder" style="background: linear-gradient(135deg, #E5E5E7, #D2D2D7); border: 2px dashed var(--border); border-radius: 18px; padding: 1.5rem; text-align: center; transition: transform 0.3s; cursor: zoom-in; position: relative; width: 100%; max-width: 600px;" onclick="zoomImage(this)">
+        <img src="images/eolienne.png" alt="eolienne" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s;">
+        <p style="margin-top: 1rem; font-weight: 500; color: var(--text);">sources d'énergie : éoliennes</p>
+    </div>
+
+    <div class="image-placeholder" style="background: linear-gradient(135deg, #E5E5E7, #D2D2D7); border: 2px dashed var(--border); border-radius: 18px; padding: 1.5rem; text-align: center; transition: transform 0.3s; cursor: zoom-in; position: relative; width: 100%; max-width: 600px;" onclick="zoomImage(this)">
+        <img src="images/energie_pneumatique.png" alt="energie_pneumatique" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s;">
+        <p style="margin-top: 1rem; font-weight: 500; color: var(--text);">sources d'énergie : système pneumatique</p>
+    </div>
+</div>
+
+<!-- Modal pour zoom -->
+<div id="zoomModal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9);">
+    <span onclick="closeZoom()" style="position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; font-weight: bold; cursor: pointer;">×</span>
+    <img id="zoomImg" style="max-width: 90%; max-height: 90%; margin: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border-radius: 12px;">
+</div>
+
+
+        </section>
+        
+        <!-- DISTRIBUER & CONVERTIR -->
+        <section id="distribuer" class="section">
+            <h2>🔀 Fonctions DISTRIBUER & CONVERTIR</h2>
+            
+            <div class="highlight">
+                <p><strong>DISTRIBUER :</strong> Gérer la distribution de l'énergie disponible vers l'actionneur sur ordre de la chaîne d'information.</p>
+                <p><strong>CONVERTIR :</strong> Transformer l'énergie distribuée en une forme d'énergie mécanique utilisable (rotation ou translation).</p>
+            </div>
+            
+            <h3>Association Préactionneur - Actionneur</h3>
+            
+            <div class="grid">
+                <div class="card">
+                    <h4>⚡ Système Électrique</h4>
+                    <p><strong>Préactionneurs :</strong></p>
+                    <ul>
+                        <li>Contacteur</li>
+                        <li>Relais</li>
+                    </ul>
+                    <p><strong>Actionneurs :</strong></p>
+                    <ul>
+                        <li>Moteur électrique (rotation)</li>
+                    </ul>
+                    <p><em>Circuit de commande : 0V - 24V</em></p>
+                    <p><em>Circuit de puissance : 230V ∼</em></p>
+                </div>
+                
+                <div class="card">
+                    <h4>💨 Système Pneumatique</h4>
+                    <p><strong>Préactionneurs :</strong></p>
+                    <ul>
+                        <li>Distributeur électropneumatique</li>
+                        <li>Distributeur 4/2 monostable ou bistable</li>
+                    </ul>
+                    <p><strong>Actionneurs :</strong></p>
+                    <ul>
+                        <li>Vérin pneumatique (translation)</li>
+                        <li>Simple effet ou double effet</li>
+                    </ul>
+                    <p><em>Pression typique : 6 bars</em></p>
+                </div>
+            </div>
+ 
+<div class="grid">
+    <!-- Image 1 -->
+    <div class="card">
+        <div class="image-placeholder" style="padding: 1rem; text-align: center; cursor: zoom-in;" onclick="zoomImage(this)">
+            <img src="images/distribuer_energie.png" alt="distribuer_energie" style="width: 100%; height: auto; max-width: 100%; object-fit: contain; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s; display: block; margin: 0 auto;">
+        </div>
+        <p style="margin-top: 0.8rem; font-weight: 500; text-align: center;">Fonction "Distribuer"</p>
+    </div>
+
+    <!-- Image 2 -->
+    <div class="card">
+        <div class="image-placeholder" style="padding: 1rem; text-align: center; cursor: zoom-in;" onclick="zoomImage(this)">
+            <img src="images/convertir_energie.png" alt="convertir_energie" style="width: 100%; height: auto; max-width: 100%; object-fit: contain; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s; display: block; margin: 0 auto;">
+        </div>
+        <p style="margin-top: 0.8rem; font-weight: 500; text-align: center;">Fonction "Convertir"</p>
+    </div>
+</div>
+
+<style>
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+.grid .image-placeholder:hover img {
+    transform: scale(1.05);
+}
+</style>
+
+
+ 
+            <h3>📋 Schéma Électrique de Puissance</h3>
+            
+            <div class="attention">
+                <p><strong>⚠️ ATTENTION SÉCURITÉ :</strong> L'essai d'un circuit de puissance sous tension triphasée 400V est soumis à des règles de sécurité strictes. Il doit être effectué dans une armoire de confinement, en présence d'un professeur.</p>
+            </div>
+            
+            <table>
+                <tr>
+                    <th>Composant</th>
+                    <th>Fonction</th>
+                    <th>Rôle dans la chaîne</th>
+                </tr>
+                <tr>
+                    <td>Réseau électrique</td>
+                    <td>Source d'énergie</td>
+                    <td>ALIMENTE le circuit</td>
+                </tr>
+                <tr>
+                    <td>Sectionneur porte-fusibles</td>
+                    <td>Isolation et protection</td>
+                    <td>ISOLE et PROTÈGE contre court-circuits</td>
+                </tr>
+                <tr>
+                    <td>Contacteur</td>
+                    <td>Commutation</td>
+                    <td>DISTRIBUE l'énergie sur ordre</td>
+                </tr>
+                <tr>
+                    <td>Relais thermique</td>
+                    <td>Protection moteur</td>
+                    <td>PROTÈGE contre surcharges</td>
+                </tr>
+                <tr>
+                    <td>Moteur électrique M 3∼</td>
+                    <td>Conversion d'énergie</td>
+                    <td>CONVERTIT électrique → mécanique</td>
+                </tr>
+            </table>
+            
+ 
+<div class="image-single" style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin: 2rem auto; max-width: 800px;">
+    
+    <div class="image-placeholder" style="background: linear-gradient(135deg, #E5E5E7, #D2D2D7); border: 2px dashed var(--border); border-radius: 18px; padding: 1.5rem; text-align: center; transition: transform 0.3s; cursor: zoom-in; position: relative; width: 100%; max-width: 800px;" onclick="zoomImage(this)">
+        <img src="images/exemple_schema_electrique_force_motrice.png" alt="exemple_schema_electrique_force_motrice" style="width: 100%; height: auto; max-width: 100%; object-fit: contain; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s; display: block; margin: 0 auto;">
+        <p style="margin-top: 1rem; font-weight: 500; color: var(--text);">Schéma électrique normalisé complet (alimentation moteur triphasé)</p>
+    </div>
+
+</div>
+
+<style>
+.image-single img:hover { transform: scale(1.05); }
+.image-placeholder:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
+/* Assure affichage intégral sans déformation */
+.image-single img {
+    object-fit: contain !important; /* Image entière visible, proportions respectées */
+    max-height: 80vh; /* Limite hauteur pour très grandes images */
+}
+</style>
+
+
+            
+            <h3>📋 Schéma Pneumatique de Puissance</h3>
+            
+            <table>
+                <tr>
+                    <th>Composant</th>
+                    <th>Fonction</th>
+                    <th>Rôle</th>
+                </tr>
+                <tr>
+                    <td>Réseau pneumatique</td>
+                    <td>Source d'air comprimé (6 bars)</td>
+                    <td>ALIMENTE en énergie</td>
+                </tr>
+                <tr>
+                    <td>Régleur de débit unidirectionnel</td>
+                    <td>Contrôle du débit</td>
+                    <td>RÈGLE la vitesse du vérin</td>
+                </tr>
+                <tr>
+                    <td>Distributeur 4/2</td>
+                    <td>Commande de direction</td>
+                    <td>DISTRIBUE l'air comprimé</td>
+                </tr>
+                <tr>
+                    <td>Vérin pneumatique</td>
+                    <td>Mouvement linéaire</td>
+                    <td>CONVERTIT pneumatique → mécanique</td>
+                </tr>
+            </table>
+            
+			
+<div class="image-single" style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin: 2rem auto; max-width: 800px;">
+    
+    <div class="image-placeholder" style="background: linear-gradient(135deg, #E5E5E7, #D2D2D7); border: 2px dashed var(--border); border-radius: 18px; padding: 1.5rem; text-align: center; transition: transform 0.3s; cursor: zoom-in; position: relative; width: 100%; max-width: 800px;" onclick="zoomImage(this)">
+        <img src="images/exemple_schema_pneumatique.png" alt="exemple_schema_pneumatique" style="width: 100%; height: auto; max-width: 100%; object-fit: contain; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s; display: block; margin: 0 auto;">
+        <p style="margin-top: 1rem; font-weight: 500; color: var(--text);">Schéma pneumatique normalisé (vérins, distributeurs, régleurs)</p>
+    </div>
+
+</div>
+
+<style>
+.image-single img:hover { transform: scale(1.05); }
+.image-placeholder:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
+/* Assure affichage intégral sans déformation */
+.image-single img {
+    object-fit: contain !important; /* Image entière visible, proportions respectées */
+    max-height: 80vh; /* Limite hauteur pour très grandes images */
+}
+</style>
+
+
+
+
+        </section>
+        
+<!-- TRANSMETTRE & AGIR -->
+<section id="transmettre" class="section">
+    <h2>⚙️ Fonctions TRANSMETTRE & AGIR</h2>
+    
+    <div class="highlight">
+        <p>Ces fonctions sont réalisées par des <strong>mécanismes de transmission</strong> qui transportent l'énergie mécanique de l'<strong>actionneur</strong> (moteur, vérin) vers l'<strong>effecteur</strong> (outil de coupe, pince...) pour agir sur la matière d'œuvre.</p>
+    </div>
+    
+    
+<h3>🔄 Moyens de transmission mécanique</h3>
+    
+<div class="grid">
+    <div class="card">
+        <h4>Engrenages</h4>
+        <div class="image-placeholder" style="padding: 1rem; text-align: center; cursor: zoom-in;" onclick="zoomImage(this)">
+            <img src="images/engrenages.png" alt="Engrenages" style="width: 100%; height: auto; max-width: 100%; object-fit: contain; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); display: block; margin: 0 auto; max-height: 200px; transition: transform 0.3s;">
+        </div>
+        <ul>
+            <li><strong>Avantages :</strong> Compact, précis, réversible, transmission puissance élevée</li>
+            <li><strong>Inconvénients :</strong> Bruyant, usure, coût élevé, nécessite lubrification</li>
+        </ul>
+    </div>
+    
+    <div class="card">
+        <h4>Courroies</h4>
+        <div class="image-placeholder" style="padding: 1rem; text-align: center; cursor: zoom-in;" onclick="zoomImage(this)">
+            <img src="images/courroies.png" alt="Courroies" style="width: 100%; height: auto; max-width: 100%; object-fit: contain; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); display: block; margin: 0 auto; max-height: 200px; transition: transform 0.3s;">
+        </div>
+        <ul>
+            <li><strong>Avantages :</strong> Silencieux, absorbe les chocs, économique, étanche</li>
+            <li><strong>Inconvénients :</strong> Glissement possible, entretien (tension), non réversible</li>
+        </ul>
+    </div>
+</div>
+
+<div class="grid">
+    <div class="card">
+        <h4>Chaînes</h4>
+        <div class="image-placeholder" style="padding: 1rem; text-align: center; cursor: zoom-in;" onclick="zoomImage(this)">
+            <img src="images/chaines.png" alt="Chaînes" style="width: 100%; height: auto; max-width: 100%; object-fit: contain; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); display: block; margin: 0 auto; max-height: 200px; transition: transform 0.3s;">
+        </div>
+        <ul>
+            <li><strong>Avantages :</strong> Grande résistance, transmission puissance élevée, longue distance</li>
+            <li><strong>Inconvénients :</strong> Bruyant, nécessite lubrification, usure des maillons</li>
+        </ul>
+    </div>
+    
+    <div class="card">
+        <h4>Autres (vis, câbles, cardans)</h4>
+        <div class="image-placeholder" style="padding: 1rem; text-align: center; cursor: zoom-in;" onclick="zoomImage(this)">
+            <img src="images/transmissions_autres.png" alt="Autres transmissions" style="width: 100%; height: auto; max-width: 100%; object-fit: contain; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); display: block; margin: 0 auto; max-height: 200px; transition: transform 0.3s;">
+        </div>
+        <ul>
+            <li><strong>Vis-écrou :</strong> Puissant, précis → lent</li>
+            <li><strong>Câbles :</strong> Flexible, longue distance → usure</li>
+            <li><strong>Cardan :</strong> Change d'axe → complexe</li>
+        </ul>
+    </div>
+</div>
+
+<style>
+/* Zoom + affichage intégral */
+.grid .image-placeholder {
+    transition: transform 0.3s ease;
+    background: transparent;
+    border: none;
+}
+.grid .image-placeholder:hover img {
+    transform: scale(1.05);
+}
+.grid .image-placeholder:hover {
+    transform: translateY(-2px);
+}
+.grid img {
+    object-fit: contain !important;
+    max-height: 200px;
+    cursor: zoom-in;
+}
+</style>
+
+    
+<h3>📊 Tableau comparatif des transmissions mécaniques</h3>
+
+<table class="comparison-table">
+    <tr>
+        <th>Moyen</th>
+        <th>Transmission<br>de puissance</th>
+        <th>Précision</th>
+        <th>Vitesse max</th>
+        <th>Silence</th>
+        <th>Entretien</th>
+        <th>Coût</th>
+        <th>Usage typique</th>
+    </tr>
+    <tr>
+        <td><strong>Engrenages</strong></td>
+        <td>⭐⭐⭐⭐⭐<br>Très élevée</td>
+        <td>⭐⭐⭐⭐⭐<br>Excellente</td>
+        <td>⭐⭐⭐⭐<br>5000 tr/min</td>
+        <td>⭐⭐<br>Bruyant</td>
+        <td>⭐⭐⭐<br>Lubrification</td>
+        <td>⭐⭐<br>Élevé</td>
+        <td>Réducteurs, robots</td>
+    </tr>
+    <tr>
+        <td><strong>Courroies</strong></td>
+        <td>⭐⭐⭐<br>Moyenne</td>
+        <td>⭐⭐⭐<br>Glissement</td>
+        <td>⭐⭐⭐⭐⭐<br>10000 tr/min</td>
+        <td>⭐⭐⭐⭐⭐<br>Silencieux</td>
+        <td>⭐⭐<br>Tension régulière</td>
+        <td>⭐⭐⭐⭐⭐<br>Faible</td>
+        <td>Convoyeurs légers</td>
+    </tr>
+    <tr>
+        <td><strong>Chaînes</strong></td>
+        <td>⭐⭐⭐⭐⭐<br>Très élevée</td>
+        <td>⭐⭐⭐⭐<br>Bonne</td>
+        <td>⭐⭐⭐⭐<br>3000 tr/min</td>
+        <td>⭐⭐<br>Bruyant</td>
+        <td>⭐⭐<br>Graissage</td>
+        <td>⭐⭐⭐<br>Moyen</td>
+        <td>Convoyeurs lourds</td>
+    </tr>
+    <tr>
+        <td><strong>Vis-écrou</strong></td>
+        <td>⭐⭐⭐⭐⭐<br>Extrême</td>
+        <td>⭐⭐⭐⭐⭐<br>Micron</td>
+        <td>⭐<br>Lente</td>
+        <td>⭐⭐⭐⭐<br>Silencieux</td>
+        <td>⭐⭐⭐<br>Moyen</td>
+        <td>⭐⭐⭐<br>Moyen</td>
+        <td>Presses, positionnement</td>
+    </tr>
+</table>
+
+<style>
+.comparison-table {
+    width: 100%; border-collapse: collapse; margin: 2rem 0; font-size: 0.9rem;
+}
+.comparison-table th {
+    background: var(--primary); color: white; padding: 1rem 0.5rem; text-align: center; font-weight: 600;
+}
+.comparison-table td {
+    padding: 0.8rem 0.5rem; border: 1px solid var(--border); vertical-align: top; text-align: center;
+}
+.comparison-table td:first-child { text-align: left; font-weight: 600; background: #F5F5F7; }
+.comparison-table tr:nth-child(even) { background: #FAFAFC; }
+.comparison-table tr:hover { background: #E8F4FD; }
+</style>
+
+    
+    <h3>🎯 Exemples systèmes automatisés</h3>
+    
+    <div class="grid">
+        <div class="card">
+            <h4> Bras robotisé</h4>
+            <p>Engrenages planétaires (réducteurs) + cardans pour articulations</p>
+        </div>
+        <div class="card">
+            <h4>Convoyeur</h4>
+            <p>Chaîne ou courroie dentée pour longue distance</p>
+        </div>
+        <div class="card">
+            <h4>Presse hydraulique</h4>
+            <p>Vis-écrou pour transformation linéaire puissante</p>
+        </div>
+    </div>
+    
+
+<div class="grid">
+    <!-- Image 1 -->
+    <div class="card">
+        <div class="image-placeholder" style="padding: 1rem; text-align: center; cursor: zoom-in;" onclick="zoomImage(this)">
+            <img src="images/bras_robotise.png" alt="bras_robotise" style="width: 100%; height: auto; max-width: 100%; object-fit: contain; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s; display: block; margin: 0 auto;">
+        </div>
+    </div>
+
+    <!-- Image 2 -->
+    <div class="card">
+        <div class="image-placeholder" style="padding: 1rem; text-align: center; cursor: zoom-in;" onclick="zoomImage(this)">
+            <img src="images/convoyeur.png" alt="convoyeur" style="width: 100%; height: auto; max-width: 100%; object-fit: contain; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s; display: block; margin: 0 auto;">
+        </div>
+    </div>
+
+    <!-- Image 3 -->
+    <div class="card">
+        <div class="image-placeholder" style="padding: 1rem; text-align: center; cursor: zoom-in;" onclick="zoomImage(this)">
+            <img src="images/presse_hydraulique.png" alt="presse_hydraulique" style="width: 100%; height: auto; max-width: 100%; object-fit: contain; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s; display: block; margin: 0 auto;">
+        </div>
+    </div>
+</div>
+
+<style>
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 3 colonnes optimal */
+    gap: 1.5rem;
+}
+.grid .image-placeholder:hover img {
+    transform: scale(1.05);
+}
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr; /* 1 colonne mobile */
+    }
+}
+</style>
+
+
+	
+</section>
+
+<style>
+.transmission-img {
+    width: 100%; height: 120px; object-fit: cover; border-radius: 12px; margin: 1rem 0;
+}
+.comparison-table {
+    width: 100%; border-collapse: collapse; margin: 1rem 0;
+}
+.comparison-table th, .comparison-table td {
+    padding: 0.8rem; text-align: center; border: 1px solid var(--border);
+}
+.comparison-table th { background: var(--primary); color: white; }
+.comparison-table td { font-size: 1.2rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+</style>
+
+        </section>
+        
+        <!-- CHAÎNE D'INFORMATION -->
+        <section id="information" class="section">
+            <h2>💡 LA CHAÎNE D'INFORMATION</h2>
+            
+            <div class="flow-diagram">
+                <div class="flow-box">ACQUÉRIR</div>
+                <span class="arrow">→</span>
+                <div class="flow-box">TRAITER</div>
+                <span class="arrow">→</span>
+                <div class="flow-box">COMMUNIQUER</div>
+            </div>
+            
+            <div class="highlight">
+                <p><strong>Objectif :</strong> La chaîne d'information permet d'acquérir des informations sur l'état du système, de les traiter selon un programme ou une logique, puis de communiquer des ordres à la chaîne d'énergie ou des messages aux utilisateurs.</p>
+            </div>
+            
+            <h3>Sources d'information</h3>
+            
+            <ul>
+                <li>État du produit ou de ses éléments (chaîne d'énergie)</li>
+                <li>Interfaces homme/machine (boutons, écrans tactiles...)</li>
+                <li>Autres chaînes d'information (réseau, communication)</li>
+                <li>Bases de données, ressources partagées</li>
+            </ul>
+            
+ 
+			<!-- Une seule image (si modal zoom déjà présente ailleurs, ignorez le modal/script) -->
+			<div class="image-single" style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin: 2rem auto; max-width: 600px;">
+				
+				<div class="image-placeholder" style="background: linear-gradient(135deg, #E5E5E7, #D2D2D7); border: 2px dashed var(--border); border-radius: 18px; padding: 1.5rem; text-align: center; transition: transform 0.3s; cursor: zoom-in; position: relative; width: 100%;" onclick="zoomImage(this)">
+					<img src="images/chaine_information.png" alt="chaine_information" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s;">
+					<p style="margin-top: 1rem; font-weight: 500; color: var(--text);">Schéma global de la chaîne d'information</p>
+				</div>
+
+			</div>
+
+			<style>
+			.image-single img:hover { transform: scale(1.05); }
+			.image-placeholder:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
+			</style>
+
+			
+        </section>
+        
+        <!-- ACQUÉRIR -->
+        <section id="acquerir" class="section">
+            <h2>📡 Fonction ACQUÉRIR</h2>
+            
+            <div class="highlight">
+                <p><strong>Définition :</strong> À partir d'une grandeur physique à mesurer, le <strong>capteur</strong> délivre un signal électrique utilisable après adaptation pour le traitement.</p>
+            </div>
+            
+ <h3>Familles de capteurs</h3>
+            
+<div class="grid">
+    <div class="card">
+        <h4>🌡️ Capteurs de température</h4>
+        <ul>
+            <li>Thermocouple</li>
+            <li>Thermistance (CTN, CTP)</li>
+            <li>Sonde PT100</li>
+        </ul>
+    </div>
+    
+    <div class="card">
+        <h4>📏 Capteurs de position</h4>
+        <ul>
+            <li>Capteur inductif</li>
+            <li>Capteur capacitif</li>
+            <li>Capteur photoélectrique</li>
+            <li>Interrupteur de position</li>
+        </ul>
+    </div>
+    
+    <div class="card">
+        <h4>🔢 Codeurs</h4>
+        <ul>
+            <li>Codeur incrémental</li>
+            <li>Codeur absolu</li>
+            <li>Codeur optique</li>
+            <li>Codeur magnétique</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h4>🧲 ILS (Interrupteur à Linguet Souple)</h4>
+        <ul>
+            <li>Detecteur de proximité magnétique</li>
+            <li>Contact reed</li>
+            <li>Porte, position fin de course</li>
+            <li>Très fiable en environnement difficile</li>
+        </ul>
+    </div>
+    
+    <div class="card">
+        <h4>🎛️ Résolveurs</h4>
+        <ul>
+            <li>Capteur de position angulaire</li>
+            <ul style="margin-left: 1rem;">
+                <li>Synchrone (analogique)</li>
+                <li>Brushless (numérique)</li>
+            </ul>
+            <li>Robuste pour servomoteurs</li>
+            <li>Précision continue (360°)</li>
+        </ul>
+    </div>
+</div>
+
+				
+				
+<div class="image-single" style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin: 2rem auto; max-width: 800px;">
+    
+    <div class="image-placeholder" style="background: linear-gradient(135deg, #E5E5E7, #D2D2D7); border: 2px dashed var(--border); border-radius: 18px; padding: 1.5rem; text-align: center; transition: transform 0.3s; cursor: zoom-in; position: relative; width: 100%; max-width: 800px;" onclick="zoomImage(this)">
+        <img src="images/tableau_capteurs.png" alt="tableau_capteurs" style="width: 100%; height: auto; max-width: 100%; object-fit: contain; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s; display: block; margin: 0 auto;">
+        <p style="margin-top: 1rem; font-weight: 500; color: var(--text);">Les principales familles de capteurs</p>
+    </div>
+
+</div>
+
+<style>
+.image-single img:hover { transform: scale(1.05); }
+.image-placeholder:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.15); }
+/* Assure affichage intégral sans déformation */
+.image-single img {
+    object-fit: contain !important; /* Image entière visible, proportions respectées */
+    max-height: 80vh; /* Limite hauteur pour très grandes images */
+}
+</style>
+				
+                    
